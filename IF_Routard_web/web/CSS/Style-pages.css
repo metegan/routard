@@ -1,0 +1,21 @@
+/* 
+    Document   : style.css
+    Created on : 18 avr. 2014, 17:25:28
+    Author     : Administrateur
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body{
+    font-family:"Arial";
+    font-size:large;
+}
+form {
+    border-style: solid;
+    border-width: 1px;
+    border-spacing: 20px;
+    background-color: #E6E6E6;
+}
+table {
+    border-spacing: 20px;
+}
