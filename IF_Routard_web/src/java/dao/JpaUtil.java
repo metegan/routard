@@ -26,7 +26,7 @@ public class JpaUtil {
      * Factory de Entity Manager liée à l'unité de persistance.
      * <br/><strong>Vérifier le nom de l'unité de persistance indiquée dans l'attribut statique PERSISTENCE_UNIT_NAME (cf.&nbsp;persistence.xml)</strong>
      */
-    private static final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+    private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
     /**
      * Gère les instances courantes de Entity Manager liées aux Threads.
      * L'utilisation de ThreadLocal garantie une unique instance courante par Thread.
@@ -46,6 +46,7 @@ public class JpaUtil {
         } catch (InterruptedException ex) {
         }
     }
+    
 
     private static void log(String message) {
 //        System.out.flush();
@@ -121,4 +122,27 @@ public class JpaUtil {
      //s   log("obtention du contexte de persistance");
         return threadLocalEntityManager.get();
     }
+     /**
+   * Initialise la Factory de Entity Manager (nécessaire au fonctionnement de JpaUtil sous Glassfish).
+   * <br/><strong>À utiliser uniquement dans la méthode init() de la Servlet Contrôleur (ActionServlet).</strong>
+   */
+  public static synchronized void init() {
+    log("initialisation de la factory de contexte de persistance");
+    if (entityManagerFactory != null) {
+      entityManagerFactory.close();
+    }
+    entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+  }
+
+  /**
+   * Libère la Factory de Entity Manager pour permettre un futur rechargement propre sous Glassfish.
+   * <br/><strong>À utiliser uniquement dans la méthode destroy() de la Servlet Contrôleur (ActionServlet).</strong>
+   */
+  public static synchronized void destroy() {
+    log("libération de la factory de contexte de persistance");
+    if (entityManagerFactory != null) {
+      entityManagerFactory.close();
+      entityManagerFactory = null;
+    }
+  } 
 }

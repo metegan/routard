@@ -50,6 +50,13 @@
                     <file>${file.reference.org.eclipse.persistence.jpa.jpql_1.0.1.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
+                <library dirs="200">
+                    <file>${libs.Java-EE-GlassFish-v3.classpath}</file>
+                </library>
+                <library dirs="200">
+                    <file>${libs.javaee-api-6.0.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
             </web-module-libraries>
             <web-module-additional-libraries/>
             <source-roots>

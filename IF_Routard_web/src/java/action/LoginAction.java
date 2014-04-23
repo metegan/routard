@@ -25,13 +25,13 @@ public class LoginAction extends Action {
      * @throws IOException
      */
     @Override
-    public void execute (HttpServletRequest request, HttpServletResponse response  )
+    public boolean execute (HttpServletRequest request  )
     {
        
         String mail = request.getParameter("mail");
         String password = request.getParameter("password");
         Service.connexionClient(mail,password);
-            
+        return true;   
         
     }
 }

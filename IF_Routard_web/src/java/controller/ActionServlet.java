@@ -8,13 +8,13 @@ import action.Action;
 import action.InscriptionAction;
 import action.LoginAction;
 import action.SelectionAction;
+import dao.JpaUtil;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import metier.service.Service;
 
 /**
  *
@@ -40,13 +40,13 @@ public class ActionServlet extends HttpServlet {
             Action action = this.getAction(tache);
             if(action!=null) 
             {
-                action.execute(request,response);
+                action.execute(request);
             }
             String vue = this.setVue(tache);
             request.getRequestDispatcher(vue).forward(request, response);
+            destroy();
            
     }
-       
 
     private Action getAction(String todo)
     {
@@ -83,7 +83,17 @@ public class ActionServlet extends HttpServlet {
         
         return vue;
     }
-    
+     @Override
+  public void init() throws ServletException {
+    super.init();
+    JpaUtil.init();
+  }
+
+  @Override
+  public void destroy() {
+    super.destroy();
+    JpaUtil.destroy();
+  }
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

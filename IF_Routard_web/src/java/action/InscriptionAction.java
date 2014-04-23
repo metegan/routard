@@ -10,8 +10,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,7 +30,7 @@ public class InscriptionAction extends Action {
      * @throws IOException
      */
     @Override
-    public void execute (HttpServletRequest request,HttpServletResponse response  )
+    public boolean execute (HttpServletRequest request  )
     {
        
         String civilite = (String)request.getParameter("civilite");
@@ -59,6 +57,17 @@ public class InscriptionAction extends Action {
         Client c = new Client(civilite, nom,  prenom, dateNaiss, adresse, tel, mail, password, true);
        
         Service.creerClient(c);
+        Boolean enregistre;
+        if (dateNaiss != null && nom != null && !nom.equals("")) {
+            enregistre = true;
+            request.getSession().setAttribute("client", c);
+
+        } else {
+            enregistre = false; //le client n'a pas pu s'enregister
+        }
+        request.getSession().setAttribute("register", enregistre);
+        
+        return true;
        
     }
 }

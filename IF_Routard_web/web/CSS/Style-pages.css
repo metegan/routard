@@ -7,15 +7,48 @@
 */
 
 body{
-    font-family:"Arial";
-    font-size:large;
+    font-family                     :"Arial";
+    font-size                       :large;
+    font-weight                     : bold; 
 }
+
 form {
-    border-style: solid;
-    border-width: 1px;
-    border-spacing: 20px;
-    background-color: #E6E6E6;
+    border-style                    : solid;
+    border-width                    : 1px;
+    border-spacing                  : 20px;
+    background-color                : #E6E6E6;
 }
 table {
-    border-spacing: 20px;
+    border-spacing                  : 20px;
 }
+a:hover{
+    background-color                : #CCFFFF
+;
+}
+h2{
+    font-family                     :"Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size                       : 45px;
+}
+.index{
+    font-size                       : x-large;
+    font-style                      : normal; 
+}
+.en_bas{
+	padding				: 9px 0;
+	text-align			: center;
+	position			: fixed;
+	bottom				: 0px;
+	color				: #FFF;
+	background-color	        : #2E2E2E;
+	border-top			: 1px solid black;
+	width				: 100%;
+}
+
+
+
+
+
+
+
+
+

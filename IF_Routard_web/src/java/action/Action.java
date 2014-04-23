@@ -19,5 +19,5 @@ public abstract class Action {
         this.service=service;
     }
     
-    public abstract void execute (HttpServletRequest request, HttpServletResponse response  );
+    public abstract boolean execute (HttpServletRequest request  );
 }

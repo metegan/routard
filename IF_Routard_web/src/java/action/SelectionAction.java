@@ -20,14 +20,13 @@ public class SelectionAction extends Action {
     /**
      *
      * @param request
-     * @param response
      * @throws ServletException
      * @throws IOException
      */
     @Override
-    public void execute (HttpServletRequest request, HttpServletResponse response  )
+    public boolean execute (HttpServletRequest request  )
     {
-       
+       return true;
        
     }
 }
