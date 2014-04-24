@@ -10,10 +10,12 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import metier.modele.Client;
+import metier.modele.Pays;
 import metier.service.Service;
 
 /**
@@ -32,6 +34,12 @@ public class InscriptionAction extends Action {
     @Override
     public boolean execute (HttpServletRequest request  )
     {
+        List<Pays> pays = Service.rechercherPays();
+       if(!pays.isEmpty())request.setAttribute("pays", pays);
+       else{
+           Pays p=new Pays();
+           request.setAttribute("pays", p);
+       }
        
         String civilite = (String)request.getParameter("civilite");
         
@@ -54,18 +62,27 @@ public class InscriptionAction extends Action {
         
         String password =  (String)request.getParameter("password");  
         
-        Client c = new Client(civilite, nom,  prenom, dateNaiss, adresse, tel, mail, password, true);
-       
-        Service.creerClient(c);
-        Boolean enregistre;
-        if (dateNaiss != null && nom != null && !nom.equals("")) {
-            enregistre = true;
-            request.getSession().setAttribute("client", c);
+        String confirmation = (String)request.getParameter("confirmation");  
+        String enregistre;
+        if(confirmation.equals(password)) {
+        
+            Client c = new Client(civilite, nom,  prenom, dateNaiss, adresse, tel, mail, password, true);
 
-        } else {
-            enregistre = false; //le client n'a pas pu s'enregister
-        }
-        request.getSession().setAttribute("register", enregistre);
+            Service.creerClient(c); 
+
+
+            if (dateNaiss != null && nom != null && !nom.equals("")) {
+                enregistre = "ok";
+                request.getSession().setAttribute("client", c);
+
+            } else {
+                enregistre = "fail"; //le client n'a pas pu s'enregister
+            }
+       } else {
+            enregistre = "fail";
+       }
+        
+        request.getSession().setAttribute("enregistre", enregistre);
         
         return true;
        

@@ -1,7 +1,7 @@
 <%-- 
     Document   : Index
     Created on : 4 avr. 2014, 18:42:05
-    Author     : Administrateur
+    Author     : Maria ETEGAN
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

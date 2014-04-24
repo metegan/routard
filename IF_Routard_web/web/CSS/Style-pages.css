@@ -12,12 +12,7 @@ body{
     font-weight                     : bold; 
 }
 
-form {
-    border-style                    : solid;
-    border-width                    : 1px;
-    border-spacing                  : 20px;
-    background-color                : #E6E6E6;
-}
+
 table {
     border-spacing                  : 20px;
 }
@@ -43,10 +38,91 @@ h2{
 	border-top			: 1px solid black;
 	width				: 100%;
 }
+.text{
+    font-size                           : 14px;
+    font-style                          : oblique;
+}
+input[type="submit"]{
+ cursor                                 :pointer;
+ width                                  : 130px;
+ background                             : #C0C0C0; 
+ color                                  : white;
+ position                               : relative;
+ top                                    : 0; 
+ font-size                              : 20px;
+ padding                                : 8px;
+ border-radius                          : 10px;
 
-
-
-
+}
+td{
+    font-family                     :"Arial";
+    font-size                       : 16px;
+    font-style                      : normal;       
+    
+}
+th{
+    font-family                     :"Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size                       : 20px;
+    
+}
+.grisee{
+    
+}
+.connexion {
+    	opacity                         : 0.8;
+ 	text-align                      : center; 
+        width                           : 550px;
+        height                          : 600px;
+        margin                          : auto;
+        padding                         : 5px;
+        background                      : #819FF7; 
+}
+select {
+    padding:3px;
+    margin: 0;
+    -webkit-border-radius               :4px;
+    -moz-border-radius                  :4px;
+    border-radius                       :4px;
+    -webkit-box-shadow                  : 0 3px 0 #ccc, 0 -1px #fff inset;
+    -moz-box-shadow                     : 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow                          : 0 3px 0 #ccc, 0 -1px #fff inset;
+    background                          : #f8f8f8;
+    color                               :#888;
+    border                              :none;
+    outline                             :none;
+    display                             : inline-block;
+    -webkit-appearance                  :none;
+    -moz-appearance                     :none;
+    appearance                          :none;
+    cursor                              :pointer;
+}
+.gris{
+  
+    border-radius                   : 25px;
+    border-style                    : solid;
+    border-width                    : 2px;
+    border-spacing                  : 20px;
+    background-color                : #E6E6E6;
+}
+.description{
+    border-radius                   : 25px;
+    border                          : 1px; 
+    width                           : 200px; 
+    height                          : 100px;
+    border-style                    : solid;
+    background-color                : white;
+    
+}
+.voyage{
+    
+    font-family                     :"Arial";
+    font-size                       : 16px;
+    font-style                      : normal;
+}
+h1{
+    font-family                     :"Arial";
+    font-size                       : 18px;
+}
 
 
 

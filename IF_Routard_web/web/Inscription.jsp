@@ -1,10 +1,12 @@
 <%-- 
     Document   : Inscription
     Created on : 4 avr. 2014, 17:56:16
-    Author     : Administrateur
+    Author     : Maria ETEGAN
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -46,7 +48,21 @@
             </br>
             Confirmation <input type="password" name="confirmation" ></br>
              <input type="submit" value="S'inscrire" /></br>
+             
             </h2>
+              <%
+            java.lang.String enregistre = (java.lang.String) request.getAttribute("enregistre");
+            if (enregistre == "ok") {
+                out.println("<p class=\"connexion\" > Enregistrement OK </p>");
+            }
+            %>
+        <%
+        metier.modele.Client c = (metier.modele.Client)request.getSession().getAttribute("client");
+        if(c!=null)
+        {
+            out.println(" - " + c.getPrenom() + " " + c.getNom() + " - <a id=\"logout\" href=\"./logout.jsp\"><font color=\"white\"><i>Déconnexion</i></font></a>");
+        } 
+    %>
           </form>
         </div>
     </body>

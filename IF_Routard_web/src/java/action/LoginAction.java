@@ -25,12 +25,21 @@ public class LoginAction extends Action {
      * @throws IOException
      */
     @Override
-    public boolean execute (HttpServletRequest request  )
+    public boolean execute (HttpServletRequest request)
     {
        
         String mail = request.getParameter("mail");
         String password = request.getParameter("password");
-        Service.connexionClient(mail,password);
+        
+        Boolean connecte;
+        if (Service.connexionClient(mail,password)) {
+            connecte = true;
+            
+        } else {
+            connecte = false; //le client n'a pas pu se connecter
+        }
+        request.getSession().setAttribute("connecte", connecte);
+        
         return true;   
         
     }

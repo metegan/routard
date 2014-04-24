@@ -28,6 +28,7 @@
             <h2>Adresse E-mail <input type="text" name="mail"></br>
          Mot de passe <input type="password" name="password" ></br>
           <input type="submit" value="Soumettre" /> </br>
+          <div class="text">Je ne suis pas inscrit -> <a class="inscription" href="./Inscription.jsp" > <i>S'inscrire </i></a></div>
             </h2>
         </form>
         </div>
