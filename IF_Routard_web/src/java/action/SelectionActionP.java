@@ -20,7 +20,7 @@ import metier.service.Service;
  * @author Administrateur
  */
 //@WebServlet(name = "inscription", urlPatterns = {"/inscription"})
-public class SelectionAction extends Action {
+public class SelectionActionP extends Action {
     /**
      *
      * @param request
@@ -30,7 +30,12 @@ public class SelectionAction extends Action {
     @Override
     public boolean execute (HttpServletRequest request)
     {
-        
+        String nomPays = request.getParameter("pays");
+        Pays pays = Service.rechercherPaysParNom(nomPays);
+        List <Voyage> voyages = Service.rechercherVoyageParPays(pays);
+        request.setAttribute("voyages", voyages);
+        request.setAttribute("typeRech", "pays");
         return true;
+
     }
 }

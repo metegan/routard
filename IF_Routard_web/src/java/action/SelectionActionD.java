@@ -20,7 +20,7 @@ import metier.service.Service;
  * @author Administrateur
  */
 //@WebServlet(name = "inscription", urlPatterns = {"/inscription"})
-public class SelectionAction extends Action {
+public class SelectionActionD extends Action {
     /**
      *
      * @param request
@@ -30,7 +30,13 @@ public class SelectionAction extends Action {
     @Override
     public boolean execute (HttpServletRequest request)
     {
-        
+        int min = Integer.parseInt(request.getParameter("min"));
+        int max  = Integer.parseInt(request.getParameter("max"));
+       
+        List <Voyage> voyages = Service.rechercherVoyageParDuree(min, max);
+        request.setAttribute("voyages", voyages);
+        request.setAttribute("typeRech", "duree");
         return true;
+
     }
 }

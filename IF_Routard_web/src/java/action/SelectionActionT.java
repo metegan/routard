@@ -20,7 +20,7 @@ import metier.service.Service;
  * @author Administrateur
  */
 //@WebServlet(name = "inscription", urlPatterns = {"/inscription"})
-public class SelectionAction extends Action {
+public class SelectionActionT extends Action {
     /**
      *
      * @param request
@@ -30,7 +30,10 @@ public class SelectionAction extends Action {
     @Override
     public boolean execute (HttpServletRequest request)
     {
+        request.setAttribute("typeRech", "tout");
+        
         
         return true;
+
     }
 }

@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import metier.modele.Client;
 import metier.modele.Pays;
+import metier.modele.Voyage;
 import metier.service.Service;
 
 /**
@@ -34,7 +35,9 @@ public class InscriptionAction extends Action {
     @Override
     public boolean execute (HttpServletRequest request  )
     {
-        List<Pays> pays = Service.rechercherPays();
+       List<Pays> pays = Service.rechercherPays();
+       List <Voyage> voyages = Service.rechercherVoyage();
+       request.setAttribute("voyages", voyages);
        if(!pays.isEmpty())request.setAttribute("pays", pays);
        else{
            Pays p=new Pays();

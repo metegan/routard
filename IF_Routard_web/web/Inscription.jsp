@@ -26,27 +26,27 @@
             <input type="radio" name="civilite" value="Mme">Mme</br>
             </br>
             Nom
-            <input type="text" name="nom"></br>
+            <input type="text" name="nom" placeholder="Votre nom"></br>
             </br>
             Prénom
-            <input type="text" name="prenom"></br>
+            <input type="text" name="prenom" placeholder="Votre prenom"></br>
             </br>
             Adresse E-mail
-            <input type="text" name="mail"></br>
+            <input type="text" name="mail" placeholder="Votre adresse mail"></br>
             </br>
             Date de naissance
-            <input type="text" name="dateNaiss" value="jj/mm/aaaa" ></br>
+            <input type="text" name="dateNaiss" placeholder="dd/MM/yyyy" ></br>
             </br>
             Numéro téléphone
-            <input type="text" name="tel" ></br>
+            <input type="text" name="tel" placeholder="Votre téléphone"></br>
             </br>
             Adresse
-            <input type="text" name="adresse" > </br>
+            <input type="text" name="adresse" placeholder="Votre adresse"> </br>
             </br>
             Mot de passe 
-            <input type="password" name="password" ></br>
+            <input type="password" name="password" placeholder="Introduisez un mot de passe"></br>
             </br>
-            Confirmation <input type="password" name="confirmation" ></br>
+            Confirmation <input type="password" name="confirmation" placeholder="Confirmer le mot de passe" ></br>
              <input type="submit" value="S'inscrire" /></br>
              
             </h2>

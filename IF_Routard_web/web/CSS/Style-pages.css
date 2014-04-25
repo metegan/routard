@@ -44,7 +44,7 @@ h2{
 }
 input[type="submit"]{
  cursor                                 :pointer;
- width                                  : 130px;
+ 
  background                             : #C0C0C0; 
  color                                  : white;
  position                               : relative;
@@ -65,7 +65,9 @@ th{
     font-size                       : 20px;
     
 }
+
 .grisee{
+    visibility                      : hidden;
     
 }
 .connexion {
@@ -97,7 +99,7 @@ select {
     cursor                              :pointer;
 }
 .gris{
-  
+    
     border-radius                   : 25px;
     border-style                    : solid;
     border-width                    : 2px;
@@ -123,8 +125,32 @@ h1{
     font-family                     :"Arial";
     font-size                       : 18px;
 }
+.choix{
+    cursor                                 :pointer;
+    background                             : #C0C0C0; 
+    color                                  : white;
+    position                               : relative;
+    top                                    : 0; 
+    font-size                              : 14px;
+    padding                                : 8px;
+    border-radius                          : 10px;
+    
+}
+.tabDefVoyage {
+        opacity     : 0.8;
+ 	text-align  : left; 
+        width       : 90%;
+        height      : 550px;
+        margin      : auto;
+        margin-top  : 20px;
+        padding     : 20px;
+        background  : #034F5F; 
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        overflow    : auto;
 
-
+}
 
 
 

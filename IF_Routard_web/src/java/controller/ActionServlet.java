@@ -8,6 +8,9 @@ import action.Action;
 import action.InscriptionAction;
 import action.LoginAction;
 import action.SelectionAction;
+import action.SelectionActionD;
+import action.SelectionActionP;
+import action.SelectionActionT;
 import dao.JpaUtil;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -64,6 +67,18 @@ public class ActionServlet extends HttpServlet {
         {
             action = new SelectionAction();
         }
+        if( "selectionerVoyageT".equals(todo))
+        {
+            action = new SelectionActionT();
+        }
+        if( "selectionerVoyageD".equals(todo))
+        {
+            action = new SelectionActionD();
+        }
+        if( "selectionerVoyageP".equals(todo))
+        {
+            action = new SelectionActionP();
+        }
         return action;
     }
     private String setVue(String todo)
@@ -76,7 +91,7 @@ public class ActionServlet extends HttpServlet {
         {
             vue = "login.jsp";
         }
-        if( "selectionerVoyage".equals(todo)||  "validerInscription".equals(todo))
+        if( "selectionerVoyage".equals(todo)||  "validerInscription".equals(todo)||"selectionerVoyageT".equals(todo)||"selectionerVoyageP".equals(todo)||"selectionerVoyageD".equals(todo))
         {
             vue = "selectionVoyage.jsp";
         }
